@@ -13,6 +13,7 @@ test('QA profile form practice ', async({page})=>{
     await page.getByRole('checkbox',{ name:' Asia'}).check();
     await page.getByRole('tab',{name: 'Navigation Commands'}).click();
     await page.getByRole('button',{name: 'Upload Image'}).setInputFiles('img.png');
+    await expect(page.locator('#upload-file-name')).toHaveText('img.png');
     await page.getByRole('link',{name: 'Download file'}).click();
     await page.getByRole('button',{name: 'Save profile'}).click();
     let output: string = await page.locator('#submission-output').innerText();
