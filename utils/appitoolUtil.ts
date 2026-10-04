@@ -1,6 +1,6 @@
-import { type Page, type Locator, expect } from "@playwright/test";
+import {  type Locator, expect } from "@playwright/test";
 
-export async function calculator(page: Page, success:Locator, danger: Locator) {
+export async function calculator(success:Locator, danger: Locator) {
 
     let successCount= await success.count();
     let dangerCount = await danger.count();
@@ -22,7 +22,9 @@ export async function calculator(page: Page, success:Locator, danger: Locator) {
          sum = sum -  Number(value);
         
     }
-    console.log(sum);
-    expect(sum).toBeCloseTo(1996.22,2);
+        console.log(sum);
+
+    return sum;
+    
     
 }
