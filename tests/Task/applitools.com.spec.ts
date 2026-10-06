@@ -8,15 +8,17 @@ test('Applitools',async({page})=>{
     await page.getByRole('link',{name: 'Sign in'}).click();
     // expect(await page.url()).toBe('https://demo.applitools.com/app.html');
     //Web first assertions
-    expect(page).toHaveURL('https://demo.applitools.com/app.html')
-
-    let success : Locator =  page.locator('table tbody .text-success');
-    let danger : Locator =  page.locator('table tbody .text-danger');
-    const sum = await calculator(success, danger);
+    await expect(page).toHaveURL('https://demo.applitools.com/app.html')
 
     await expect(page.locator('table tbody tr').first()).toBeVisible()
 
-     expect(sum).toBeCloseTo(1996.22,2);
+    const success : Locator =  page.locator('table tbody .text-success');
+    const danger : Locator =  page.locator('table tbody .text-danger');
+
+    
+
+    const sum = await calculator(success, danger);
+    expect(sum).toBeCloseTo(1996.22,2);
 })
 
 
