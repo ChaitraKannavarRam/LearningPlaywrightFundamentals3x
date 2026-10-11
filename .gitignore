@@ -10,3 +10,4 @@ node_modules/
 /reports/
 /tta-report/
 /allure-results/
+/tta-user-session.json
